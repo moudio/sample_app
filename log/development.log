@@ -288,3 +288,17 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 182ms (Views: 176.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-08-14 09:53:23 +0000
+  
+SyntaxError (/home/mouahamdou/Desktop/Microverse_rails/sample_app/app/helpers/application_helper.rb:12: syntax error, unexpected end, expecting end-of-input):
+  
+app/helpers/application_helper.rb:12: syntax error, unexpected end, expecting end-of-input
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/static_pages_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2019-08-14 09:54:47 +0000
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 193ms (Views: 191.2ms | ActiveRecord: 0.0ms)
+
+
