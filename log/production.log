@@ -1,0 +1,80 @@
+D, [2019-09-03T10:30:39.359800 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2019-09-03T10:30:39.374363 #4390] DEBUG -- :   [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2019-09-03T10:30:39.389425 #4390] DEBUG -- :   [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-09-03T10:30:39.401411 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-09-03T10:30:39.401496 #4390]  INFO -- : Migrating to CreateUsers (20190827143047)
+D, [2019-09-03T10:30:39.403819 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-09-03T10:30:39.404523 #4390] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-09-03T10:30:39.406791 #4390] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190827143047"]]
+D, [2019-09-03T10:30:39.412376 #4390] DEBUG -- :   [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-09-03T10:30:39.412477 #4390]  INFO -- : Migrating to AddIndexToUsersEmail (20190828101833)
+D, [2019-09-03T10:30:39.413197 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-09-03T10:30:39.413982 #4390] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2019-09-03T10:30:39.414835 #4390] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190828101833"]]
+D, [2019-09-03T10:30:39.434298 #4390] DEBUG -- :   [1m[35m (19.2ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-09-03T10:30:39.434403 #4390]  INFO -- : Migrating to AddPasswordDigestToUsers (20190828102856)
+D, [2019-09-03T10:30:39.435174 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-09-03T10:30:39.435762 #4390] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+D, [2019-09-03T10:30:39.436460 #4390] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190828102856"]]
+D, [2019-09-03T10:30:39.449390 #4390] DEBUG -- :   [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+D, [2019-09-03T10:30:39.452085 #4390] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2019-09-03T10:30:39.455381 #4390] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-09-03T10:30:39.456497 #4390] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "production"], ["created_at", "2019-09-03 10:30:39.455668"], ["updated_at", "2019-09-03 10:30:39.455668"]]
+D, [2019-09-03T10:30:39.460939 #4390] DEBUG -- :   [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-09-03T10:31:23.004988 #4479]  INFO -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3] Started GET "/" for 127.0.0.1 at 2019-09-03 10:31:23 +0000
+I, [2019-09-03T10:31:23.006162 #4479]  INFO -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3] Processing by StaticPagesController#home as HTML
+I, [2019-09-03T10:31:23.014555 #4479]  INFO -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3]   Rendering static_pages/home.html.erb within layouts/application
+I, [2019-09-03T10:31:23.016392 #4479]  INFO -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3]   Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+I, [2019-09-03T10:31:23.016685 #4479]  INFO -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3] Completed 500 Internal Server Error in 10ms
+F, [2019-09-03T10:31:23.017703 #4479] FATAL -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3]   
+F, [2019-09-03T10:31:23.017793 #4479] FATAL -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3] ActionView::Template::Error (The asset "rails.png" is not present in the asset pipeline.):
+F, [2019-09-03T10:31:23.017902 #4479] FATAL -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3]     11: </div>
+[40b7be93-09b2-40ad-9fc9-59620ef63fb3]     12: 
+[40b7be93-09b2-40ad-9fc9-59620ef63fb3]     13: 
+[40b7be93-09b2-40ad-9fc9-59620ef63fb3]     14: <%= link_to image_tag("rails.png", alt: "Rails logo"),
+[40b7be93-09b2-40ad-9fc9-59620ef63fb3]     15:             'http://rubyonrails.org/' %>
+F, [2019-09-03T10:31:23.017932 #4479] FATAL -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3]   
+F, [2019-09-03T10:31:23.017954 #4479] FATAL -- : [40b7be93-09b2-40ad-9fc9-59620ef63fb3] app/views/static_pages/home.html.erb:14:in `_app_views_static_pages_home_html_erb___2960338011159735334_47118111373800'
+I, [2019-09-03T10:31:23.952587 #4479]  INFO -- : [792457eb-13dd-4123-af85-84f665360bca] Started GET "/favicon.ico" for 127.0.0.1 at 2019-09-03 10:31:23 +0000
+F, [2019-09-03T10:31:23.953135 #4479] FATAL -- : [792457eb-13dd-4123-af85-84f665360bca]   
+F, [2019-09-03T10:31:23.953186 #4479] FATAL -- : [792457eb-13dd-4123-af85-84f665360bca] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2019-09-03T10:31:23.953209 #4479] FATAL -- : [792457eb-13dd-4123-af85-84f665360bca]   
+F, [2019-09-03T10:31:23.953243 #4479] FATAL -- : [792457eb-13dd-4123-af85-84f665360bca] actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+[792457eb-13dd-4123-af85-84f665360bca] railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+[792457eb-13dd-4123-af85-84f665360bca] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[792457eb-13dd-4123-af85-84f665360bca] activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+[792457eb-13dd-4123-af85-84f665360bca] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+[792457eb-13dd-4123-af85-84f665360bca] railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] railties (5.2.3) lib/rails/engine.rb:524:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[792457eb-13dd-4123-af85-84f665360bca] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[792457eb-13dd-4123-af85-84f665360bca] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[792457eb-13dd-4123-af85-84f665360bca] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[792457eb-13dd-4123-af85-84f665360bca] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+D, [2019-09-03T10:31:53.854959 #4645] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2019-09-03T10:31:53.856524 #4645] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2019-09-03T10:31:53.859458 #4645] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-09-03T10:31:53.860184 #4645] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-09-03T10:32:04.365965 #4686]  INFO -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734] Started GET "/" for 127.0.0.1 at 2019-09-03 10:32:04 +0000
+I, [2019-09-03T10:32:04.367426 #4686]  INFO -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734] Processing by StaticPagesController#home as HTML
+I, [2019-09-03T10:32:04.377440 #4686]  INFO -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734]   Rendering static_pages/home.html.erb within layouts/application
+I, [2019-09-03T10:32:04.378962 #4686]  INFO -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734]   Rendered static_pages/home.html.erb within layouts/application (1.4ms)
+I, [2019-09-03T10:32:04.379215 #4686]  INFO -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734] Completed 500 Internal Server Error in 12ms
+F, [2019-09-03T10:32:04.380084 #4686] FATAL -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734]   
+F, [2019-09-03T10:32:04.380161 #4686] FATAL -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734] ActionView::Template::Error (The asset "rails.png" is not present in the asset pipeline.):
+F, [2019-09-03T10:32:04.380251 #4686] FATAL -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734]     11: </div>
+[f9dbdbb3-abe1-4e87-8064-9e8e661fb734]     12: 
+[f9dbdbb3-abe1-4e87-8064-9e8e661fb734]     13: 
+[f9dbdbb3-abe1-4e87-8064-9e8e661fb734]     14: <%= link_to image_tag("rails.png", alt: "Rails logo"),
+[f9dbdbb3-abe1-4e87-8064-9e8e661fb734]     15:             'http://rubyonrails.org/' %>
+F, [2019-09-03T10:32:04.380280 #4686] FATAL -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734]   
+F, [2019-09-03T10:32:04.380307 #4686] FATAL -- : [f9dbdbb3-abe1-4e87-8064-9e8e661fb734] app/views/static_pages/home.html.erb:14:in `_app_views_static_pages_home_html_erb___1686664409878257568_47370123675560'
