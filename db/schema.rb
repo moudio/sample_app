@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_08_28_102856) do
+=======
+ActiveRecord::Schema.define(version: 2019_09_16_015443) do
+>>>>>>> Implement advanced login
 
   create_table "users", force: :cascade do |t|
     t.string "name"
